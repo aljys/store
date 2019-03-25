@@ -8,16 +8,31 @@
 </head>
 <body>
     <script>
-    
     function getName(name){
     this.name = name;
     console.log(this)
 }
 var foo = {};
-// getName('name')
 getName.call(foo, name)//继承
-// console.log(getName.call(foo, name));  
-    
+
+var foo = 1;
+function bar() {
+    alert(!foo)//隐士类型数据转换
+    if (!foo) {var foo = 10;}
+    alert(foo);//10
+}
+bar();
+
+var a = 1;
+function b() {
+a = 10;
+return;
+function a() {}
+}
+b();
+alert(a);//1 
+
+var a = 1;function t(){console.info(a);eval('var a = 2');console.info(a);}t();console.info(a);//结果按照顺序为1，2，1
     </script>
 </body>
 </html>
